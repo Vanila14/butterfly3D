@@ -1,0 +1,117 @@
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+}
+
+body {
+  background-color: #531cd1;
+  color: #fff;
+  font-family: Goudy Stout;
+}
+
+.layers {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  overflow: hidden;
+}
+
+.layers__container {
+  height: 100vh;
+  min-height: 500px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+          transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+  will-change: transform;
+  -webkit-transition: -webkit-transform var(--transition);
+  transition: -webkit-transform var(--transition);
+  transition: transform var(--transition);
+  transition: transform var(--transition), -webkit-transform var(--transition);
+}
+
+.layers__item {
+  position: absolute;
+  inset: -2vw;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.layer-1 {
+  -webkit-transform: translateZ(-50px) scale(1.06);
+          transform: translateZ(-50px) scale(1.06);
+}
+
+.layer-2 {
+  -webkit-transform: translateZ(30px) scale(0.88);
+          transform: translateZ(30px) scale(0.88);
+}
+
+.layer-3 {
+  -webkit-transform: translateZ(50px) scale(0.8);
+          transform: translateZ(50px) scale(0.8);
+}
+
+.layer-4 {
+  -webkit-transform: translateZ(80px) scale(0.9);
+          transform: translateZ(80px) scale(0.9);
+}
+
+.layer-5 {
+  -webkit-transform: translateZ(120px) scale(0.9);
+          transform: translateZ(120px) scale(0.9);
+}
+
+.layer-6 {
+  -webkit-transform: translateZ(150px);
+          transform: translateZ(150px);
+}
+
+.layer-7 {
+  -webkit-transform: translateZ(180px);
+          transform: translateZ(180px);
+}
+
+.layer-8 {
+  -webkit-transform: translateZ(220px);
+          transform: translateZ(220px);
+}
+
+.layer-4, .layer-5, .layer-6 {
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  top: 100px;
+  text-align: center;
+  letter-spacing: calc(var(--index) * -0.15);
+  line-height: 1.35em;
+}
+
+.sub-title {
+  top: 230px;
+}
+
+.text-title {
+  letter-spacing: -15px;
+  font-size: calc(var(--index) * 4.5);
+}
+
+.text-subtitle {
+  letter-spacing: -10px;
+  font-size: calc(var(--index) * 3.5);
+}
